@@ -1,0 +1,194 @@
+You said:
+pandas library python notes type fully handnotes 
+ChatGPT said:
+
+Got it! Here’s a complete, easy-to-understand handwritten-style note on the Pandas library in Python — perfect for study or quick revision.
+🐼 Pandas Library in Python — Full Handwritten Notes
+1. What is Pandas?
+
+    Pandas is a powerful open-source Python library.
+
+    Used for data manipulation, analysis, and cleaning.
+
+    Provides easy-to-use data structures like Series and DataFrame.
+
+    Built on top of NumPy.
+
+2. Key Data Structures
+a) Series
+
+    1D labeled array.
+
+    Can hold any data type.
+
+    Like a column in a spreadsheet or database.
+
+import pandas as pd
+
+s = pd.Series([10, 20, 30, 40])
+print(s)
+
+b) DataFrame
+
+    2D labeled data structure (like a table).
+
+    Has rows and columns.
+
+    Columns can have different data types.
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['NY', 'LA', 'Chicago']
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+3. Creating DataFrames
+
+    From dictionary (as above)
+
+    From CSV file
+
+df = pd.read_csv('file.csv')
+
+    From Excel file
+
+df = pd.read_excel('file.xlsx')
+
+    From lists
+
+df = pd.DataFrame([[1, 2], [3, 4]], columns=['A', 'B'])
+
+4. Viewing Data
+Method	Description
+df.head()	Shows first 5 rows
+df.tail()	Shows last 5 rows
+df.info()	Summary of dataframe
+df.describe()	Statistical summary of numeric columns
+5. Accessing Data
+
+    By column name:
+
+df['Name']
+
+    By row index:
+
+df.loc[0]      # by label/index
+df.iloc[0]     # by integer position
+
+    Slice rows and columns:
+
+df.loc[0:2, ['Name', 'Age']]
+
+6. Adding & Deleting Columns
+
+    Add column:
+
+df['Salary'] = [50000, 60000, 70000]
+
+    Delete column:
+
+df.drop('Salary', axis=1, inplace=True)
+
+7. Filtering Data
+
+    Simple filter:
+
+df[df['Age'] > 28]
+
+    Multiple conditions:
+
+df[(df['Age'] > 25) & (df['City'] == 'LA')]
+
+8. Handling Missing Data
+
+    Check missing:
+
+df.isnull()
+
+    Drop rows with missing values:
+
+df.dropna(inplace=True)
+
+    Fill missing values:
+
+df.fillna(0, inplace=True)
+
+9. Sorting Data
+
+    Sort by column ascending:
+
+df.sort_values('Age', inplace=True)
+
+    Sort descending:
+
+df.sort_values('Age', ascending=False, inplace=True)
+
+10. Grouping Data
+
+    Group by a column and aggregate:
+
+df.groupby('City')['Age'].mean()
+
+    Multiple aggregations:
+
+df.groupby('City').agg({'Age': 'mean', 'Salary': 'sum'})
+
+11. Merging & Joining DataFrames
+
+    Merge two DataFrames on common column:
+
+pd.merge(df1, df2, on='ID')
+
+    Join (like SQL join):
+
+df1.join(df2, how='inner')
+
+12. Exporting Data
+
+    To CSV:
+
+df.to_csv('output.csv', index=False)
+
+    To Excel:
+
+df.to_excel('output.xlsx', index=False)
+
+13. Useful Functions & Methods
+Function/Method	Purpose
+df.shape	Get rows and columns count
+df.columns	List column names
+df.dtypes	Data types of columns
+df.unique()	Unique values in a Series
+df.value_counts()	Count occurrences
+df.apply()	Apply function on DataFrame
+14. Quick Example
+
+import pandas as pd
+
+data = {'Name': ['John', 'Anna', 'Peter', 'Linda'],
+        'Age': [28, 24, 35, 32],
+        'City': ['NY', 'LA', 'NY', 'Chicago']}
+
+df = pd.DataFrame(data)
+
+# Filter people older than 30
+older_than_30 = df[df['Age'] > 30]
+
+print(older_than_30)
+
+Summary:
+
+    Pandas = powerful tool for data handling.
+
+    Use Series for 1D data, DataFrame for 2D.
+
+    Read/write files easily.
+
+    Filter, sort, group, and manipulate data efficiently.
+
+    Handles missing data gracefully.
+
+If you want, I can also create detailed notes with examples for each topic or prepare a PDF handout. Just let me know!
